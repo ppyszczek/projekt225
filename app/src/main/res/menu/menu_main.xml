@@ -5,6 +5,7 @@
         android:id="@+id/about"
         android:title="O programie"
         android:orderInCategory="1" />
+
     <item
         android:id="@+id/end"
         android:title="Zakoncz"

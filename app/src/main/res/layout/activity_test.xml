@@ -40,7 +40,6 @@
         android:background="@color/grey"
         android:textColor="@color/red"/>
 
-
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -51,7 +50,6 @@
         android:layout_marginTop="10dp"
         android:background="@color/grey"
         android:textColor="@color/red" />
-
 
     <Button
         android:layout_width="fill_parent"
@@ -65,8 +63,7 @@
         android:layout_alignStart="@+id/b1"
         android:layout_alignRight="@+id/txt1"
         android:layout_alignEnd="@+id/txt1" />
-
-
+    
     <Button
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"

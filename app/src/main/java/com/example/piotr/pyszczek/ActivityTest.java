@@ -247,8 +247,6 @@ public class ActivityTest extends ActionBarActivity {
             default:
                 break;
         }
-
-
     }
 
     public void editLayout(){
@@ -288,7 +286,6 @@ public class ActivityTest extends ActionBarActivity {
             default:
                 break;
         }
-
 
     }
 
