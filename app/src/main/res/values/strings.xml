@@ -4,4 +4,29 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_activity_test">Test</string>
+
+
+    <!-- MainActivity -->
+    <string name="author">Piotr Pyszczek</string>
+    <string name="name">Android Application</string>
+    <string name="packageName">Package:</string>
+    <string name="versionName">Version name:</string>
+    <string name="versionNumber">Version number:</string>
+    <string name="buttonLayouts">Layouts</string>
+    <string name="buttonComponents">Components</string>
+    <string name="buttonInputData">Input data</string>
+
+    <!-- ComponentsActivity -->
+    <string name="nameComponents">Components</string>
+    <string name="seekBar">SeekBar</string>
+    <string name="progressBarValued">ProgressBarValues</string>
+    <string name="progressBarInfinity">ProgressBarInfinity</string>
+    <string name="ratingBar">RatingBar</string>
+    <string name="switchComponent">SwitchComponent</string>
+    <string name="toggleButton">ToggleButton</string>
+    <string name="radioGroup">RadioGroup</string>
+    <string name="radioButton1">RadioButton1</string>
+    <string name="radioButton2">RadioButton2</string>
+    <string name="radioButton3">RadioButton3</string>
+    <string name="buttonSummary">Summary</string>
 </resources>

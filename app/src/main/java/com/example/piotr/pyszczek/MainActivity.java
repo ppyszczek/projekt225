@@ -3,6 +3,8 @@ package com.example.piotr.pyszczek;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
@@ -83,26 +85,39 @@ public class MainActivity extends ActionBarActivity {
             }
         });
     }
+        @Override
+        public boolean onCreateOptionsMenu(Menu menu) {
+            super.onCreateOptionsMenu(menu);
+            getMenuInflater().inflate(R.menu.menu_main, menu);
+            return super.onCreateOptionsMenu(menu);
 
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
         }
-        return super.onOptionsItemSelected(item);
-    }
+
+        public boolean onOptionsItemSelected(MenuItem item) {
+            switch (item.getItemId()) {
+                case R.id.about:
+                    try {
+                        PackageInfo packageInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
+                        String packageName = packageInfo.packageName;
+                        int versionNumber = packageInfo.versionCode;
+
+                        AlertDialog alertDialog = new AlertDialog.Builder(this).create();
+                        alertDialog.setTitle("About");
+                        alertDialog.setMessage("Projekt na PUMA\nAutor: Piotr Pyszczek\nNr.Alb: 225\nNazwa paczki: " + packageName + "\nWersja: "+ versionNumber);
+                        alertDialog.setIcon(R.drawable.ic_launcher3);
+                        alertDialog.show();
+                    }
+                    catch (PackageManager.NameNotFoundException e) {
+                        e.printStackTrace();
+                    }
+                    break;
+                case R.id.end:
+                    android.os.Process.killProcess(android.os.Process.myPid());
+                    System.exit(1);
+                    break;
+            }
+            return super.onOptionsItemSelected(item);
+        }
+
 
 }

@@ -1,6 +1,8 @@
 package com.example.piotr.pyszczek;
 
+import android.app.AlertDialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.MenuItem;
@@ -28,13 +30,6 @@ public class ActivityTest extends ActionBarActivity {
     Button next;
     Button prev;
 
-    TextView p1;
-    TextView p2;
-    TextView p3;
-    TextView w1;
-    TextView w2;
-    TextView w3;
-
     boolean pokaz = false;
     private int counter;
     private List<Integer> questions;
@@ -51,12 +46,7 @@ public class ActivityTest extends ActionBarActivity {
         b3 = (Button) findViewById(R.id.b3);
         next = (Button) findViewById(R.id.next);
         prev = (Button) findViewById(R.id.prev);
-        p1 = (TextView) findViewById(R.id.p1);
-        p2 = (TextView) findViewById(R.id.p2);
-        p3 = (TextView) findViewById(R.id.p3);
-        w1 = (TextView) findViewById(R.id.w1);
-        w2 = (TextView) findViewById(R.id.w2);
-        w3 = (TextView) findViewById(R.id.w3);
+
 
         counter = 0;
         questions = new ArrayList<Integer>(MyData.INT_NUMBER_OF_QUESTIONS);
@@ -123,50 +113,60 @@ public class ActivityTest extends ActionBarActivity {
 
     }
 
-    public void reload(){
+    public void reload() {
         MyData.prepareQuestion(pytania[counter]);
         editLayoutTest();
 
-        if(counter==0)
+        b1.setBackgroundColor(Color.parseColor("#FF888888"));
+        b2.setBackgroundColor(Color.parseColor("#FF888888"));
+        b3.setBackgroundColor(Color.parseColor("#FF888888"));
+
+
+        if (counter == 0)
             prev.setVisibility(View.INVISIBLE);
         else
             prev.setVisibility(View.VISIBLE);
-        if(counter==4)
+        if (counter == 4)
             next.setVisibility(View.INVISIBLE);
         else
             next.setVisibility(View.VISIBLE);
 
+        if (MyData.answers[0].equals(odpowiedzi[counter])){
+            AlertDialog alertDialog = new AlertDialog.Builder(this).create();
+            alertDialog.setTitle("brawo");
+            alertDialog.setMessage("Poprawna odpowiedz");
+            alertDialog.setIcon(R.drawable.ic_launcher1);
+            alertDialog.show();
+        }
+        if (!MyData.answers[0].equals(odpowiedzi[counter])){
+            AlertDialog alertDialog = new AlertDialog.Builder(this).create();
+            alertDialog.setTitle("Niestety");
+            alertDialog.setMessage("Wybrana odpowiedz: " + odpowiedzi[counter] + "\nPoprawna odpowiedz: " + MyData.answers[0]);
+            alertDialog.setIcon(R.drawable.ic_launcher2);
+            alertDialog.show();
+        }
+
         if (b1.getText().equals(MyData.answers[0])){
-            p1.setVisibility(View.VISIBLE);
-            p2.setVisibility(View.INVISIBLE);
-            p3.setVisibility(View.INVISIBLE);
+            b1.setBackgroundColor(Color.BLUE);
         }
         else if (b2.getText().equals(MyData.answers[0])){
-            p1.setVisibility(View.INVISIBLE);
-            p2.setVisibility(View.VISIBLE);
-            p3.setVisibility(View.INVISIBLE);
+            b2.setBackgroundColor(Color.BLUE);
         }
         else if (b3.getText().equals(MyData.answers[0])){
-            p1.setVisibility(View.INVISIBLE);
-            p2.setVisibility(View.INVISIBLE);
-            p3.setVisibility(View.VISIBLE);
+            b3.setBackgroundColor(Color.BLUE);
         }
 
         if (b1.getText().equals(odpowiedzi[counter])){
-            w1.setVisibility(View.VISIBLE);
-            w2.setVisibility(View.INVISIBLE);
-            w3.setVisibility(View.INVISIBLE);
+            b1.setBackgroundColor(Color.GREEN);
         }
         else if (b2.getText().equals(odpowiedzi[counter])){
-            w1.setVisibility(View.INVISIBLE);
-            w2.setVisibility(View.VISIBLE);
-            w3.setVisibility(View.INVISIBLE);
+            b2.setBackgroundColor(Color.GREEN);
         }
         else if (b3.getText().equals(odpowiedzi[counter])){
-            w1.setVisibility(View.INVISIBLE);
-            w2.setVisibility(View.INVISIBLE);
-            w3.setVisibility(View.VISIBLE);
+            b3.setBackgroundColor(Color.GREEN);
+
         }
+
     }
 
     public void saveAnswer(int inButtonNumber) {
