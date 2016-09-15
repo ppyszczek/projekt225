@@ -16,17 +16,4 @@
     <string name="buttonComponents">Components</string>
     <string name="buttonInputData">Input data</string>
 
-    <!-- ComponentsActivity -->
-    <string name="nameComponents">Components</string>
-    <string name="seekBar">SeekBar</string>
-    <string name="progressBarValued">ProgressBarValues</string>
-    <string name="progressBarInfinity">ProgressBarInfinity</string>
-    <string name="ratingBar">RatingBar</string>
-    <string name="switchComponent">SwitchComponent</string>
-    <string name="toggleButton">ToggleButton</string>
-    <string name="radioGroup">RadioGroup</string>
-    <string name="radioButton1">RadioButton1</string>
-    <string name="radioButton2">RadioButton2</string>
-    <string name="radioButton3">RadioButton3</string>
-    <string name="buttonSummary">Summary</string>
 </resources>
